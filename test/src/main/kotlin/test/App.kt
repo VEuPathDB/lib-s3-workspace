@@ -11,6 +11,7 @@ fun main() {
   val result = TestResult()
 
   result += RootWorkspaceFactory(client).run()
+  result += NestedWorkspaceFactory(client).run()
 
   log.info("Succeeded: {}", result.successes)
   log.info("   Failed: {}", result.failures)
