@@ -1,2 +1,2 @@
-rootProject.name = "s3-workspaces"
+rootProject.name = "workspaces"
 
