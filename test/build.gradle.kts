@@ -1,5 +1,7 @@
 plugins {
   kotlin("jvm") version "1.6.20"
+  id("com.github.johnrengelman.shadow") version "7.1.2"
+  application
 }
 
 repositories {
@@ -18,22 +20,28 @@ repositories {
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation(kotlin("stdlib-jdk8"))
-
-  implementation("org.veupathdb.lib.s3:s34k:0.4.0")
-  implementation("org.veupathdb.lib.s3:s34k-minio:0.2.0+s34k-0.4.0")
 
   implementation("org.veupathdb.lib:hash-id:2.0.0")
+  implementation("org.veupathdb.lib.s3:s34k:0.4.0")
+  implementation("org.veupathdb.lib.s3:workspaces:1.0-SNAPSHOT") { isChanging = true }
 
   implementation("org.slf4j:slf4j-api:1.7.36")
 
   implementation("org.apache.logging.log4j:log4j-api:2.17.2")
   implementation("org.apache.logging.log4j:log4j-core:2.17.2")
   implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.17.2")
+}
 
-  testImplementation("org.mockito:mockito-core:4.5.1")
-  testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
-  testImplementation(kotlin("test"))
+application {
+  mainClass.set("test.AppKt")
+}
+
+tasks.shadowJar {
+  archiveBaseName.set("service")
+  archiveClassifier.set("")
+  archiveVersion.set("")
+
+  exclude("**/Log4j2Plugins.dat")
 }
 
 java {
