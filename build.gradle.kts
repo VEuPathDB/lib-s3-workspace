@@ -1,5 +1,8 @@
 plugins {
   kotlin("jvm") version "1.6.20"
+  id("org.jetbrains.dokka") version "1.6.10"
+  `java-library`
+  `maven-publish`
 }
 
 group = "org.veupathdb.lib.s3"
@@ -44,6 +47,48 @@ java {
   targetCompatibility = JavaVersion.VERSION_16
 }
 
+task("docs") {
+  dependsOn("dokkaHtml", "dokkaJavadoc")
+}
+
 tasks.test {
   useJUnitPlatform()
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "GitHub"
+      url = uri("https://maven.pkg.github.com/VEuPathDB/lib-s34k-minio")
+      credentials {
+        username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+        password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+      }
+    }
+  }
+
+  publications {
+    create<MavenPublication>("gpr") {
+      from(components["java"])
+      pom {
+        name.set("S3 Workspaces")
+        description.set("Workspaces backed by an S3 object store.")
+        url.set("https://github.com/VEuPathDB/lib-s3-workspace")
+        developers {
+          developer {
+            id.set("epharper")
+            name.set("Elizabeth Paige Harper")
+            email.set("epharper@upenn.edu")
+            url.set("https://github.com/foxcapades")
+            organization.set("VEuPathDB")
+          }
+        }
+        scm {
+          connection.set("scm:git:git://github.com/VEuPathDB/lib-s3-workspace.git")
+          developerConnection.set("scm:git:ssh://github.com/VEuPathDB/lib-s3-workspace.git")
+          url.set("https://github.com/VEuPathDB/lib-s3-workspace")
+        }
+      }
+    }
+  }
 }
