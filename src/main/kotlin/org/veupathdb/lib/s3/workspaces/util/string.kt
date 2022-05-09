@@ -32,7 +32,7 @@ internal inline fun String.toDirPath() =
     else                             -> "$this/"
   }
 
-internal inline fun joinPaths(vararg segments: String): String {
+internal fun joinPaths(vararg segments: String): String {
   // Oversize our buffer a little bit
   //
   // Also bundle in some validation on the first pass through to bail before we
@@ -53,6 +53,9 @@ internal inline fun joinPaths(vararg segments: String): String {
 
     if (segments[i].startsWith('/'))
       tmp.append(segments[i], 1, segments[i].length)
+    else
+      tmp.append(segments[i])
+
     if (!segments[i].endsWith('/'))
       tmp.append('/')
   }
