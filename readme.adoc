@@ -1,0 +1,16 @@
+= S3 Workspaces
+
+image:https://img.shields.io/badge/jvm-16-blue[title="Compatible with JVM 16"]
+
+A thin wrapper library around https://github.com/VEuPathDB/lib-s34k[S34K] treating an S3 object store as a remote
+filesystem.
+
+== Workspaces
+
+Workspaces are directories keyed on a https://github.com/VEuPathDB/lib-hash-id[HashID] which contain files and
+sub-workspaces relevant to a specific job.
+
+NOTE: As S3 stores have no concept of directories, workspaces are marked with a special file named `.workspace`.
+This file is kept at the root of a workspace.  This library uses the workspace marker file to simulate directory and
+file operations.
+
