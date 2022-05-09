@@ -2,7 +2,7 @@
 
 package org.veupathdb.lib.s3.workspaces.util
 
-private val validPathRgx = Regex("^/?(:?[A-Za-z\\d_\\-]+/?)*\$")
+private val validPathRgx = Regex("^/?(:?[A-Za-z\\d_\\-.]+/?)*\$")
 
 internal inline fun String.validatePath() =
   if (!this.matches(validPathRgx))

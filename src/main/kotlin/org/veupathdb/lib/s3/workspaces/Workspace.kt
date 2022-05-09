@@ -234,11 +234,12 @@ interface Workspace {
    *
    * @throws NullPointerException If [id] is `null`.
    *
-   * @throws IllegalStateException If the target sub-workspace already exists.
+   * @throws WorkspaceAlreadyExistsError If the target sub-workspace already
+   * exists.
    *
    * @throws S34KError If an error occurs in the underlying library while
    * communicating with the S3 server.
    */
-  @Throws(NullPointerException::class, S34KError::class)
+  @Throws(WorkspaceAlreadyExistsError::class, S34KError::class)
   fun createSubWorkspace(id: HashID): SubWorkspace
 }

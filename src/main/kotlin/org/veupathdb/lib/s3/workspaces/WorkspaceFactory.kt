@@ -8,11 +8,15 @@ import org.veupathdb.lib.s3.s34k.fields.BucketName
 import org.veupathdb.lib.s3.workspaces.impl.MarkerFile
 import org.veupathdb.lib.s3.workspaces.impl.WorkspaceImpl
 import org.veupathdb.lib.s3.workspaces.util.extendPath
+import org.veupathdb.lib.s3.workspaces.util.validatePath
 
 /**
  * # S3 Workspace Factory
  *
  * Creates workspace instances backed by S3 files/directories.
+ *
+ * @author Elizabeth Paige Harper [https://github.com/Foxcapades]
+ * @since v1.0.0
  *
  * @constructor Constructs a new [WorkspaceFactory] instance.
  *
@@ -33,6 +37,12 @@ import org.veupathdb.lib.s3.workspaces.util.extendPath
  * @throws IllegalArgumentException If the given bucket name is not a valid S3
  * bucket name.  For additional rules on what a valid bucket name looks like,
  * see [BucketName].
+ *
+ * @throws IllegalArgumentException If the given [rootDir] value is not a valid
+ * path segment.
+ *
+ * @throws S34KError If an error is encountered by the underlying library
+ * while attempting to communicate with the S3 server.
  */
 @Suppress("unused")
 class WorkspaceFactory(
@@ -60,16 +70,16 @@ class WorkspaceFactory(
    * @throws IllegalArgumentException If the given bucket name is not a valid S3
    * bucket name.  For additional rules on what a valid bucket name looks like,
    * see [BucketName].
+   *
+   * @throws S34KError If an error is encountered by the underlying library
+   * while attempting to communicate with the S3 server.
    */
   constructor(s3: S3Client, bucket: String) : this(s3, bucket, "")
 
   init {
-    val name = BucketName(bucket)
+    rootDir.validatePath()
 
-    if (!s3.buckets.exists(name))
-      throw IllegalStateException("Bucket '$name' does not exist.")
-
-    this.bucket = s3.buckets[name]!!
+    this.bucket = s3.buckets[BucketName(bucket)] ?: throw IllegalStateException("Bucket '$bucket' does not exist.")
   }
 
   /**
@@ -82,20 +92,20 @@ class WorkspaceFactory(
    * @return A workspace instance, if the target workspace exists, otherwise
    * `null`.
    *
+   * @throws NullPointerException If [id] is `null`.
+   *
    * @throws S34KError If an error is encountered by the underlying library
    * while attempting to communicate with the S3 server.
    */
+  @Throws(NullPointerException::class, S34KError::class)
   operator fun get(id: HashID): Workspace? {
     val path = makePath(id)
-    val mark = path.extendPath(MarkerFile)
 
     // Test that the marker object exists.  If it does not, return null.
-    if (mark !in bucket.objects) {
-
-      return null
-    }
-
-    return WorkspaceImpl(id, bucket, path)
+    return if (path.extendPath(MarkerFile) !in bucket.objects)
+      null
+    else
+      WorkspaceImpl(id, bucket, path)
   }
 
   /**
@@ -115,11 +125,14 @@ class WorkspaceFactory(
    *
    * @return A [Workspace] instance wrapping the created workspace.
    *
+   * @throws NullPointerException If [id] is `null`.
+   *
    * @throws WorkspaceAlreadyExistsError If the target workspace already exists.
    *
    * @throws S34KError If an error is encountered by the underlying library
    * while attempting to communicate with the S3 server.
    */
+  @Throws(NullPointerException::class, WorkspaceAlreadyExistsError::class, S34KError::class)
   fun create(id: HashID): Workspace {
     val wsPath = makePath(id)
     val marker = wsPath.extendPath(MarkerFile)

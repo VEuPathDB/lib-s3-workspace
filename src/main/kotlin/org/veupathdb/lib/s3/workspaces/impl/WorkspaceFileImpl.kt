@@ -19,7 +19,7 @@ internal class WorkspaceFileImpl(
     return buck.objects.open(path)!!.stream
   }
 
-  override fun copyTo(localFile: File): File {
+  override fun download(localFile: File): File {
     return buck.objects.download(path, localFile).localFile
   }
 
