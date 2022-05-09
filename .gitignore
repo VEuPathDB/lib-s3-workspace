@@ -1,0 +1,8 @@
+/.idea/
+/build/
+/test/build/
+/test/.idea/
+/.gradle/
+/test/.gradle/
+/out/
+/test/out/
