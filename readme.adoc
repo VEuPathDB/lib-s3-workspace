@@ -14,3 +14,18 @@ NOTE: As S3 stores have no concept of directories, workspaces are marked with a 
 This file is kept at the root of a workspace.  This library uses the workspace marker file to simulate directory and
 file operations.
 
+== Development
+
+=== End-to-End Testing
+
+This repo contains an end-to-end test suite consisting of a standalone application with a docker-compose stack that runs
+that application against a blank MinIO instance.
+
+This application consumes the `lib-s3-workspace` library as a standard gradle dependency and operates as an 'unrelated'
+service.
+
+==== Execution
+
+===== Reporting
+
+==== Development

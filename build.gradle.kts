@@ -47,6 +47,14 @@ java {
   targetCompatibility = JavaVersion.VERSION_16
 }
 
+tasks.dokkaHtml {
+  outputDirectory.set(file("docs/dokka"))
+}
+
+tasks.dokkaJavadoc {
+  outputDirectory.set(file("docs/javadoc"))
+}
+
 task("docs") {
   dependsOn("dokkaHtml", "dokkaJavadoc")
 }

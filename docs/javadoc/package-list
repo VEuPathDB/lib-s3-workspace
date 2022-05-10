@@ -1,0 +1,5 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+
+org.veupathdb.lib.s3.workspaces
+
