@@ -147,5 +147,14 @@ class StringKtTest {
         assertEquals("foo/bar", joinPaths("", "/foo", "", "bar"))
       }
     }
+
+    @Nested
+    inner class Join {
+
+      @Test
+      fun t1() {
+        assertEquals("foo/.workspace", joinPaths("foo", ".workspace"))
+      }
+    }
   }
 }

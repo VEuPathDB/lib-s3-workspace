@@ -1,5 +1,6 @@
 package org.veupathdb.lib.s3.workspaces
 
+import org.slf4j.LoggerFactory
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.S3Client
 import org.veupathdb.lib.s3.s34k.buckets.S3Bucket
@@ -51,6 +52,8 @@ class WorkspaceFactory(
   private val rootDir: String,
 ) {
 
+  private val log = LoggerFactory.getLogger(WorkspaceFactory::class.java)
+
   private val bucket: S3Bucket
 
   /**
@@ -99,10 +102,15 @@ class WorkspaceFactory(
    */
   @Throws(NullPointerException::class, S34KError::class)
   operator fun get(id: HashID): Workspace? {
+    log.trace("#get(id = {})", id)
+
     val path = makePath(id)
+    val mark = path.extendPath(MarkerFile)
+
+    log.debug("Test path = {}", mark)
 
     // Test that the marker object exists.  If it does not, return null.
-    return if (path.extendPath(MarkerFile) !in bucket.objects)
+    return if (mark !in bucket.objects)
       null
     else
       WorkspaceImpl(id, bucket, path)
@@ -134,12 +142,16 @@ class WorkspaceFactory(
    */
   @Throws(NullPointerException::class, WorkspaceAlreadyExistsError::class, S34KError::class)
   fun create(id: HashID): Workspace {
+    log.trace("#create(id = {})", id)
+
     val wsPath = makePath(id)
     val marker = wsPath.extendPath(MarkerFile)
 
+    log.debug("Testing if workspace {} exists", id)
     if (marker in bucket.objects)
       throw WorkspaceAlreadyExistsError(id)
 
+    log.debug("Creating workspace marker file {}", marker)
     bucket.objects.touch(marker)
 
     return WorkspaceImpl(id, bucket, wsPath)
