@@ -1,4 +1,5 @@
 = S3 Workspaces
+:source-highlighter: highlightjs
 
 image:https://img.shields.io/badge/jvm-16-blue[title="Compatible with JVM 16"]
 
@@ -34,7 +35,7 @@ val factory = WorkspaceFactory(s3, "bucket-name")
 
 val workspace = factory.create(HashID.ofMD5("my workspace id"))
 
-val inputStream = workspace.open("my-file-name.txt")
+workspace.copy(File("my-file"), "my-remote-path")
 ----
 
 === End-to-End Testing
@@ -47,6 +48,47 @@ service.
 
 ==== Execution
 
+The end-to-end tests may be executed by doing the following:
+
+[source, shell]
+----
+$ cd test
+$ make end-to-end
+----
+
+This will build the docker-compose stack then spin it up to run the test application.
+
 ===== Reporting
 
+The test application outputs a series of log lines, each with the name/description of the test.  If the test succeeds,
+nothing further will be logged from that test, and the next test will be executed.  If the test fails, an error line
+will be printed immediately following the failed test's name.
+
+Additionally, a summary will be printed at the end of the tests with the number of passed/failed tests.
+
+.Output
+[source%nowrap]
+----
+2022-05-10T14:29:46,212 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.get when workspace does not exist.
+2022-05-10T14:29:46,295 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.get when workspace does exist.
+2022-05-10T14:29:46,361 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.create when workspace does not exist.
+2022-05-10T14:29:46,399 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.create when workspace already exists.
+2022-05-10T14:29:46,455 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.get when workspace does not exist.
+2022-05-10T14:29:46,462 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.get when workspace does exist.
+2022-05-10T14:29:46,517 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.create when workspace does not exist.
+2022-05-10T14:29:46,565 [INFO ] [   Root WorkspaceFactory] WorkspaceFactory.create when workspace already exists.
+2022-05-10T14:29:46,898 [INFO ] [                  Tester] Succeeded: 8
+2022-05-10T14:29:46,898 [INFO ] [                  Tester]    Failed: 0
+----
+
 ==== Development
+
+The end-to-end tests live as a separate/standalone project under the `./test` directory in this repository.  It is
+"separate" in that it has no ties and is not a submodule of the Gradle project in the repository root.
+
+Under the test directory the tests themselves are defined under `./src/main/kotlin`.
+
+The entrypoint for the tests is the file `App.kt` which calls the specific test classes and tallies the results.
+
+Each test class is loosely modeled after an implementation class with calls to each of the functions with a number of
+different inputs/scenarios.
