@@ -107,7 +107,7 @@ class WorkspaceFactory(
     val path = makePath(id)
     val mark = path.extendPath(MarkerFile)
 
-    log.debug("Test path = $mark")
+    log.debug("Test path = {}", mark)
 
     // Test that the marker object exists.  If it does not, return null.
     return if (mark !in bucket.objects)
@@ -147,11 +147,11 @@ class WorkspaceFactory(
     val wsPath = makePath(id)
     val marker = wsPath.extendPath(MarkerFile)
 
-    log.debug("Testing if workspace $id exists")
+    log.debug("Testing if workspace {} exists", id)
     if (marker in bucket.objects)
       throw WorkspaceAlreadyExistsError(id)
 
-    log.debug("Creating workspace marker file $marker")
+    log.debug("Creating workspace marker file {}", marker)
     bucket.objects.touch(marker)
 
     return WorkspaceImpl(id, bucket, wsPath)
