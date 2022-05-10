@@ -10,7 +10,7 @@ import org.veupathdb.lib.s3.workspaces.WorkspaceFactory
 // Workspace factory based in the bucket root.
 class NestedWorkspaceFactory(private val s3: S3Client) {
 
-  private val log = LoggerFactory.getLogger("Root WorkspaceFactory")
+  private val log = LoggerFactory.getLogger("Nested WorkspaceFactory")
 
   fun run(): TestResult {
 

@@ -12,6 +12,7 @@ fun main() {
 
   result += RootWorkspaceFactory(client).run()
   result += NestedWorkspaceFactory(client).run()
+  result += WorkspaceTest(client).run()
 
   log.info("Succeeded: {}", result.successes)
   log.info("   Failed: {}", result.failures)
