@@ -2,7 +2,6 @@ package org.veupathdb.lib.s3.workspaces
 
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.errors.S34KError
-import org.veupathdb.lib.s3.s34k.errors.ObjectNotFoundError
 import java.io.File
 import java.io.InputStream
 import java.io.FileNotFoundException
@@ -79,35 +78,6 @@ interface Workspace {
   fun write(path: String, stream: InputStream) : WorkspaceFile
 
   /**
-   * Uploads the given [File] to a new file in the remote workspace under the
-   * given [path].
-   *
-   * If a file already exists with the target [path], it will be overwritten.
-   *
-   * @param path Relative path to the empty file to create.
-   *
-   * @param localFile File that will be uploaded to the remote store.
-   *
-   * @return A [WorkspaceFile] wrapping the uploaded file.
-   *
-   * @throws NullPointerException If either [path] or [localFile] is null.
-   *
-   * @throws IllegalArgumentException If the given [path] is blank.
-   *
-   * @throws FileNotFoundException If the given [localFile] does not exist.
-   *
-   * @throws S34KError If an error occurs in the underlying library while
-   * communicating with the S3 server.
-   */
-  @Throws(
-    NullPointerException::class,
-    IllegalArgumentException::class,
-    FileNotFoundException::class,
-    S34KError::class
-  )
-  fun write(path: String, localFile: File) : WorkspaceFile
-
-  /**
    * Opens a stream over the contents of the target file in the S3 store.
    *
    * @param path Relative path to the remote file to open.
@@ -132,18 +102,22 @@ interface Workspace {
   fun open(path: String): InputStream
 
   /**
-   * Copies a file from the remote store to the specified local [target] file.
+   * Copies the given [File] ([from]) to a new file in the remote workspace
+   * under the given path ([to]).
    *
-   * @param source Relative path to the remote file to copy.
+   * If a file already exists with the target path, it will be overwritten.
    *
-   * @param target Local file into which the remote file's contents will be
-   * copied.
+   * @param from File that will be uploaded to the remote store.
    *
-   * @throws NullPointerException If either [source] or [target] is `null`.
+   * @param to Relative path to the empty file to create.
    *
-   * @throws IllegalArgumentException If [source] is blank.
+   * @return A [WorkspaceFile] wrapping the uploaded file.
    *
-   * @throws FileNotFoundException If [source] was not found in this workspace.
+   * @throws NullPointerException If either [to] or [from] is null.
+   *
+   * @throws IllegalArgumentException If the given [to] is blank.
+   *
+   * @throws FileNotFoundException If the given [from] does not exist.
    *
    * @throws S34KError If an error occurs in the underlying library while
    * communicating with the S3 server.
@@ -154,7 +128,32 @@ interface Workspace {
     FileNotFoundException::class,
     S34KError::class
   )
-  fun copy(source: String, target: File)
+  fun copy(from: File, to: String) : WorkspaceFile
+
+  /**
+   * Copies a file from the remote store to the specified local file ([to]).
+   *
+   * @param from Relative path to the remote file to copy.
+   *
+   * @param to Local file into which the remote file's contents will be
+   * copied.
+   *
+   * @throws NullPointerException If either [from] or [to] is `null`.
+   *
+   * @throws IllegalArgumentException If [from] is blank.
+   *
+   * @throws FileNotFoundException If [from] was not found in this workspace.
+   *
+   * @throws S34KError If an error occurs in the underlying library while
+   * communicating with the S3 server.
+   */
+  @Throws(
+    NullPointerException::class,
+    IllegalArgumentException::class,
+    FileNotFoundException::class,
+    S34KError::class
+  )
+  fun copy(from: String, to: File)
 
   /**
    * Recursively lists all the files in the remote 'directory'.

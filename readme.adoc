@@ -20,6 +20,23 @@ file operations.
 
 image::docs/assets/simple-flow.png[align="center"]
 
+This library stands between a "workspace" based application (such as
+https://github.com/VEuPathDB/service-multi-blast[MultiBlast]) and an https://github.com/VEuPathDB/lib-s34k[S34K] wrapped
+S3 Object store instance.
+
+This library wraps S34K and provides filesystem like operations and utilities that are backed by requests to the S3
+server.
+
+.**Example**
+[source, kotlin]
+----
+val factory = WorkspaceFactory(s3, "bucket-name")
+
+val workspace = factory.create(HashID.ofMD5("my workspace id"))
+
+val inputStream = workspace.open("my-file-name.txt")
+----
+
 === End-to-End Testing
 
 This repo contains an end-to-end test suite consisting of a standalone application with a docker-compose stack that runs

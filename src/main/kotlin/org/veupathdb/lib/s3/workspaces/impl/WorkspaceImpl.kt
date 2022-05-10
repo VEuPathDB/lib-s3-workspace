@@ -25,18 +25,18 @@ internal open class WorkspaceImpl(
   override fun write(path: String, stream: InputStream) : WorkspaceFile =
     this.path.extendPath(path).let { WorkspaceFileImpl(it, s3.objects.put(it, stream), s3) }
 
-  override fun write(path: String, localFile: File): WorkspaceFile =
-    this.path.extendPath(path).let { WorkspaceFileImpl(path, s3.objects.upload(path, localFile), s3) }
+  override fun copy(from: File, to: String): WorkspaceFile =
+    this.path.extendPath(to).let { WorkspaceFileImpl(to, s3.objects.upload(to, from), s3) }
 
   override fun open(path: String): InputStream =
     this.path.extendPath(path).let {
       s3.objects.open(path)?.stream ?: throw FileNotFoundException("Remote file $path was not found")
     }
 
-  override fun copy(source: String, target: File) {
-    val path = path.extendPath(source)
+  override fun copy(from: String, to: File) {
+    val path = path.extendPath(from)
     try {
-      s3.objects.download(path, target)
+      s3.objects.download(path, to)
     } catch (e: ObjectNotFoundError) {
       throw FileNotFoundException("Remote file $path was not found")
     }
