@@ -16,6 +16,10 @@ file operations.
 
 == Development
 
+=== Design
+
+image::docs/assets/simple-flow.png[align="center"]
+
 === End-to-End Testing
 
 This repo contains an end-to-end test suite consisting of a standalone application with a docker-compose stack that runs
