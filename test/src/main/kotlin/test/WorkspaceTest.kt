@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.S3Client
 import org.veupathdb.lib.s3.s34k.fields.BucketName
-import org.veupathdb.lib.s3.workspaces.WorkspaceFactory
+import org.veupathdb.lib.s3.workspaces.S3WorkspaceFactory
 
 class WorkspaceTest(private val s3: S3Client) {
 
@@ -30,7 +30,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("flowers")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
 
     try {
       // Create workspace
@@ -59,7 +59,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("bonkers")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
 
     try {
       // Create workspace marker so we can get a handle on the workspace
@@ -91,7 +91,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("flumps")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
 
     try {
       // Create workspace marker so we can get a handle on the workspace
@@ -122,7 +122,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("postgres")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
 
     val input = "hello world!"
 
@@ -165,7 +165,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("postgres")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
 
     val input = "goodbye world!"
 
@@ -202,7 +202,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("postgres")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
 
     try {
       // Create workspace marker so we can get a handle on the workspace
@@ -251,7 +251,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("postgres")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
     val objName = "starlight-brigade"
 
     try {
@@ -284,7 +284,7 @@ class WorkspaceTest(private val s3: S3Client) {
 
     val bucket  = s3.buckets.create(BucketName("foobar"))
     val hashID  = HashID.ofMD5("postgres")
-    val factory = WorkspaceFactory(s3, "foobar")
+    val factory = S3WorkspaceFactory(s3, "foobar")
     val objName = "the-hit"
 
     try {

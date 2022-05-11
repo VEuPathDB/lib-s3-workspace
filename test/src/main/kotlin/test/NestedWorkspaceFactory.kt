@@ -4,8 +4,8 @@ import org.slf4j.LoggerFactory
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.S3Client
 import org.veupathdb.lib.s3.s34k.fields.BucketName
+import org.veupathdb.lib.s3.workspaces.S3WorkspaceFactory
 import org.veupathdb.lib.s3.workspaces.WorkspaceAlreadyExistsError
-import org.veupathdb.lib.s3.workspaces.WorkspaceFactory
 
 // Workspace factory based in the bucket root.
 class NestedWorkspaceFactory(private val s3: S3Client) {
@@ -34,7 +34,7 @@ class NestedWorkspaceFactory(private val s3: S3Client) {
     val hashID = HashID.ofHash("3bbfaace3b2fc985b4ee7bf0524fe938")
 
     try {
-      val out = WorkspaceFactory(s3, bucket.name.name, "potatoes")[hashID] == null
+      val out = S3WorkspaceFactory(s3, bucket.name.name, "potatoes")[hashID] == null
 
       if (!out)
         log.error("Failed!")
@@ -54,7 +54,7 @@ class NestedWorkspaceFactory(private val s3: S3Client) {
     bucket.objects.touch("potatoes/d2ef1720c8ca990a8fed7847c3e26684/.workspace")
 
     try {
-      val out = WorkspaceFactory(s3, bucket.name.name, "potatoes")[hashID] != null
+      val out = S3WorkspaceFactory(s3, bucket.name.name, "potatoes")[hashID] != null
 
       if (!out)
         log.error("Failed!")
@@ -72,7 +72,7 @@ class NestedWorkspaceFactory(private val s3: S3Client) {
     val hashID = HashID.ofHash("90a4e75b78b3137c2d1d175e15dcb7fb")
 
     try {
-      WorkspaceFactory(s3, bucket.name.name, "potatoes").create(hashID)
+      S3WorkspaceFactory(s3, bucket.name.name, "potatoes").create(hashID)
 
       if ("potatoes/90a4e75b78b3137c2d1d175e15dcb7fb/.workspace" !in bucket.objects) {
         log.error("Failed!")
@@ -94,7 +94,7 @@ class NestedWorkspaceFactory(private val s3: S3Client) {
     bucket.objects.touch("potatoes/5ead3556b4924a5bc3fb1bd262575dae/.workspace")
 
     return try {
-      WorkspaceFactory(s3, bucket.name.name, "potatoes").create(hashID)
+      S3WorkspaceFactory(s3, bucket.name.name, "potatoes").create(hashID)
       false
     } catch (e: WorkspaceAlreadyExistsError) {
       true
