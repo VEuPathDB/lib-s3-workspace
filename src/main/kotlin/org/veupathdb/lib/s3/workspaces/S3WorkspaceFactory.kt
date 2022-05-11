@@ -113,7 +113,7 @@ class S3WorkspaceFactory(
     return if (mark !in bucket.objects)
       null
     else
-      S3WorkspaceImpl(id, bucket, path)
+      S3WorkspaceImpl(id, path, bucket)
   }
 
   /**
@@ -154,7 +154,7 @@ class S3WorkspaceFactory(
     log.debug("Creating workspace marker file {}", marker)
     bucket.objects.touch(marker)
 
-    return S3WorkspaceImpl(id, bucket, wsPath)
+    return S3WorkspaceImpl(id, wsPath, bucket)
   }
 
   @Suppress("NOTHING_TO_INLINE")

@@ -7,7 +7,7 @@ import org.veupathdb.lib.s3.workspaces.S3Workspace
 
 internal class SubS3WorkspaceImpl(
   id: HashID,
+  path: String,
   override val parent: S3Workspace,
   s3: S3Bucket,
-  path: String,
-) : SubS3Workspace, S3WorkspaceImpl(id, s3, path)
+) : SubS3Workspace, S3WorkspaceImpl(id, path, s3)

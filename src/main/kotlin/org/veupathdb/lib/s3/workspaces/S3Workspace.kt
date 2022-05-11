@@ -26,6 +26,11 @@ interface S3Workspace {
   val id: HashID
 
   /**
+   * Absolute path to this workspace (including the workspace ID)
+   */
+  val path: String
+
+  /**
    * Tests whether this workspace still exists.
    *
    * @return `true` if this workspace still exists, otherwise `false`.

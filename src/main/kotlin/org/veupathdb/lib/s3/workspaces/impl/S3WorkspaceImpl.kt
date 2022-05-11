@@ -14,8 +14,8 @@ import java.io.InputStream
 
 internal open class S3WorkspaceImpl(
   override val id: HashID,
+  override val path: String,
   private val s3: S3Bucket,
-  private val path: String,
 ) : S3Workspace {
   override fun exists() = path.extendPath(MarkerFile) in s3.objects
 
@@ -63,7 +63,7 @@ internal open class S3WorkspaceImpl(
 
   override fun openSubWorkspace(id: HashID) =
     if (s3.objects.contains(path.extendPath(id.string, MarkerFile)))
-      SubS3WorkspaceImpl(id, this, s3, path.extendPath(id.string))
+      SubS3WorkspaceImpl(id, path.extendPath(id.string), this, s3)
     else
       null
 
@@ -73,6 +73,6 @@ internal open class S3WorkspaceImpl(
       throw IllegalStateException("Cannot create a sub-workspace for $id under $path.  A workspace already exists with this ID.")
 
     s3.objects.touch(tgt)
-    return SubS3WorkspaceImpl(id, this, s3, path.extendPath(id.string))
+    return SubS3WorkspaceImpl(id, path.extendPath(id.string), this, s3)
   }
 }
