@@ -1,12 +1,14 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   kotlin("jvm") version "1.6.20"
   id("org.jetbrains.dokka") version "1.6.10"
-  `java-library`
+  `java`
   `maven-publish`
 }
 
 group = "org.veupathdb.lib.s3"
-version = "2.1.0"
+version = "2.1.2"
 
 repositories {
   mavenLocal()
@@ -48,6 +50,10 @@ java {
 
   withJavadocJar()
   withSourcesJar()
+}
+
+tasks.javadoc {
+  exclude("module-info.java")
 }
 
 tasks.dokkaHtml {
