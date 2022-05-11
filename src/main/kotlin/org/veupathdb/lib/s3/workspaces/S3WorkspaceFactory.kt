@@ -7,7 +7,7 @@ import org.veupathdb.lib.s3.s34k.buckets.S3Bucket
 import org.veupathdb.lib.s3.s34k.errors.S34KError
 import org.veupathdb.lib.s3.s34k.fields.BucketName
 import org.veupathdb.lib.s3.workspaces.impl.MarkerFile
-import org.veupathdb.lib.s3.workspaces.impl.WorkspaceImpl
+import org.veupathdb.lib.s3.workspaces.impl.S3WorkspaceImpl
 import org.veupathdb.lib.s3.workspaces.util.extendPath
 import org.veupathdb.lib.s3.workspaces.util.validatePath
 
@@ -17,9 +17,9 @@ import org.veupathdb.lib.s3.workspaces.util.validatePath
  * Creates workspace instances backed by S3 files/directories.
  *
  * @author Elizabeth Paige Harper [https://github.com/Foxcapades]
- * @since v1.0.0
+ * @since v2.0.0
  *
- * @constructor Constructs a new [WorkspaceFactory] instance.
+ * @constructor Constructs a new [S3WorkspaceFactory] instance.
  *
  * @param s3 Initialized [S3Client] instance that will be used for all 'file
  * operations'.
@@ -46,18 +46,18 @@ import org.veupathdb.lib.s3.workspaces.util.validatePath
  * while attempting to communicate with the S3 server.
  */
 @Suppress("unused")
-class WorkspaceFactory(
+class S3WorkspaceFactory(
   private val s3: S3Client,
   bucket: String,
   private val rootDir: String,
 ) {
 
-  private val log = LoggerFactory.getLogger(WorkspaceFactory::class.java)
+  private val log = LoggerFactory.getLogger(S3WorkspaceFactory::class.java)
 
   private val bucket: S3Bucket
 
   /**
-   * Constructs a new [WorkspaceFactory] instance with an empty default root
+   * Constructs a new [S3WorkspaceFactory] instance with an empty default root
    * directory.
    *
    * @param s3 Initialized [S3Client] instance that will be used for all 'file
@@ -101,7 +101,7 @@ class WorkspaceFactory(
    * while attempting to communicate with the S3 server.
    */
   @Throws(NullPointerException::class, S34KError::class)
-  operator fun get(id: HashID): Workspace? {
+  operator fun get(id: HashID): S3Workspace? {
     log.trace("#get(id = {})", id)
 
     val path = makePath(id)
@@ -113,13 +113,13 @@ class WorkspaceFactory(
     return if (mark !in bucket.objects)
       null
     else
-      WorkspaceImpl(id, bucket, path)
+      S3WorkspaceImpl(id, bucket, path)
   }
 
   /**
    * Creates a new workspace.
    *
-   * If [rootDir] was set when constructing this [WorkspaceFactory] instance,
+   * If [rootDir] was set when constructing this [S3WorkspaceFactory] instance,
    * the created workspace will reside under that root directory.
    *
    * If a workspace already exists with the given ID, this method will fail with
@@ -131,7 +131,7 @@ class WorkspaceFactory(
    *
    * @param id ID of the workspace to create.
    *
-   * @return A [Workspace] instance wrapping the created workspace.
+   * @return A [S3Workspace] instance wrapping the created workspace.
    *
    * @throws NullPointerException If [id] is `null`.
    *
@@ -141,7 +141,7 @@ class WorkspaceFactory(
    * while attempting to communicate with the S3 server.
    */
   @Throws(NullPointerException::class, WorkspaceAlreadyExistsError::class, S34KError::class)
-  fun create(id: HashID): Workspace {
+  fun create(id: HashID): S3Workspace {
     log.trace("#create(id = {})", id)
 
     val wsPath = makePath(id)
@@ -154,7 +154,7 @@ class WorkspaceFactory(
     log.debug("Creating workspace marker file {}", marker)
     bucket.objects.touch(marker)
 
-    return WorkspaceImpl(id, bucket, wsPath)
+    return S3WorkspaceImpl(id, bucket, wsPath)
   }
 
   @Suppress("NOTHING_TO_INLINE")

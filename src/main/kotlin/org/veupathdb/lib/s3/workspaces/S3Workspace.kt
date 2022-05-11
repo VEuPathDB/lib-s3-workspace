@@ -16,9 +16,9 @@ import java.io.FileNotFoundException
  * via the [openSubWorkspace] method.
  *
  * @author Elizabeth Paige Harper [https://github.com/Foxcapades]
- * @since v1.0.0
+ * @since v2.0.0
  */
-interface Workspace {
+interface S3Workspace {
 
   /**
    * ID of this workspace.
@@ -222,14 +222,14 @@ interface Workspace {
    * communicating with the S3 server.
    */
   @Throws(NullPointerException::class, S34KError::class)
-  fun openSubWorkspace(id: HashID): SubWorkspace?
+  fun openSubWorkspace(id: HashID): SubS3Workspace?
 
   /**
    * Creates a sub-workspace under this workspace with the given [id].
    *
    * @param id ID of the sub-workspace to create.
    *
-   * @return A [SubWorkspace] instance wrapping the newly created sub-workspace.
+   * @return A [SubS3Workspace] instance wrapping the newly created sub-workspace.
    *
    * @throws NullPointerException If [id] is `null`.
    *
@@ -240,5 +240,5 @@ interface Workspace {
    * communicating with the S3 server.
    */
   @Throws(WorkspaceAlreadyExistsError::class, S34KError::class)
-  fun createSubWorkspace(id: HashID): SubWorkspace
+  fun createSubWorkspace(id: HashID): SubS3Workspace
 }
