@@ -3,8 +3,8 @@ package org.veupathdb.lib.s3.workspaces.impl
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.buckets.S3Bucket
 import org.veupathdb.lib.s3.s34k.errors.ObjectNotFoundError
-import org.veupathdb.lib.s3.workspaces.SubWorkspace
-import org.veupathdb.lib.s3.workspaces.Workspace
+import org.veupathdb.lib.s3.workspaces.SubS3Workspace
+import org.veupathdb.lib.s3.workspaces.S3Workspace
 import org.veupathdb.lib.s3.workspaces.WorkspaceFile
 import org.veupathdb.lib.s3.workspaces.util.extendPath
 import org.veupathdb.lib.s3.workspaces.util.toDirPath
@@ -12,11 +12,11 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.InputStream
 
-internal open class WorkspaceImpl(
+internal open class S3WorkspaceImpl(
   override val id: HashID,
   private val s3: S3Bucket,
   private val path: String,
-) : Workspace {
+) : S3Workspace {
   override fun exists() = path.extendPath(MarkerFile) in s3.objects
 
   override fun touch(path: String): WorkspaceFile =
@@ -63,16 +63,16 @@ internal open class WorkspaceImpl(
 
   override fun openSubWorkspace(id: HashID) =
     if (s3.objects.contains(path.extendPath(id.string, MarkerFile)))
-      SubWorkspaceImpl(id, this, s3, path.extendPath(id.string))
+      SubS3WorkspaceImpl(id, this, s3, path.extendPath(id.string))
     else
       null
 
-  override fun createSubWorkspace(id: HashID): SubWorkspace {
+  override fun createSubWorkspace(id: HashID): SubS3Workspace {
     val tgt = path.extendPath(id.string, MarkerFile)
     if (s3.objects.contains(tgt))
       throw IllegalStateException("Cannot create a sub-workspace for $id under $path.  A workspace already exists with this ID.")
 
     s3.objects.touch(tgt)
-    return SubWorkspaceImpl(id, this, s3, path.extendPath(id.string))
+    return SubS3WorkspaceImpl(id, this, s3, path.extendPath(id.string))
   }
 }

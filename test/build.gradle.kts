@@ -23,7 +23,7 @@ dependencies {
 
   implementation("org.veupathdb.lib:hash-id:2.0.0")
   implementation("org.veupathdb.lib.s3:s34k:0.4.0")
-  implementation("org.veupathdb.lib.s3:workspaces:1.0-SNAPSHOT") { isChanging = true }
+  implementation("org.veupathdb.lib.s3:workspaces:2.0.0") { isChanging = true }
 
   implementation("org.slf4j:slf4j-api:1.7.36")
 

@@ -16,7 +16,7 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
 @DisplayName("WorkspaceFactory")
-internal class WorkspaceFactoryTest {
+internal class S3WorkspaceFactoryTest {
 
   private val provisionClient: S3Client get() = mock(S3Client::class.java)
 
@@ -33,7 +33,7 @@ internal class WorkspaceFactoryTest {
       fun t1() {
 
         assertThrows<IllegalArgumentException> {
-          WorkspaceFactory(provisionClient, "hello world")
+          S3WorkspaceFactory(provisionClient, "hello world")
         }
       }
     }
@@ -52,7 +52,7 @@ internal class WorkspaceFactoryTest {
         `when`(buckets.exists(BucketName("hello-world"))).thenReturn(false)
 
         assertThrows<IllegalStateException> {
-          WorkspaceFactory(client, "hello-world")
+          S3WorkspaceFactory(client, "hello-world")
         }
       }
     }
@@ -83,7 +83,7 @@ internal class WorkspaceFactoryTest {
         `when`(bucket.objects).thenReturn(objects)
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(false)
 
-        assertNull(WorkspaceFactory(client, "hello-world")[id])
+        assertNull(S3WorkspaceFactory(client, "hello-world")[id])
       }
     }
 
@@ -107,7 +107,7 @@ internal class WorkspaceFactoryTest {
         `when`(bucket.objects).thenReturn(objects)
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(true)
 
-        assertNotNull(WorkspaceFactory(client, name.name)[hash])
+        assertNotNull(S3WorkspaceFactory(client, name.name)[hash])
       }
     }
   }
@@ -138,7 +138,7 @@ internal class WorkspaceFactoryTest {
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(true)
 
         assertThrows<WorkspaceAlreadyExistsError> {
-          WorkspaceFactory(client, name.name).create(hash)
+          S3WorkspaceFactory(client, name.name).create(hash)
         }
       }
     }
@@ -165,7 +165,7 @@ internal class WorkspaceFactoryTest {
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(false)
         `when`(objects.touch("12345678901234561234567890123456/.workspace")).thenReturn(derps)
 
-        assertNotNull(WorkspaceFactory(client, name.name).create(hash))
+        assertNotNull(S3WorkspaceFactory(client, name.name).create(hash))
       }
     }
   }
