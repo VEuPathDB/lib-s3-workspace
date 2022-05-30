@@ -4,6 +4,7 @@ import org.veupathdb.lib.s3.s34k.errors.S34KError
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.InputStream
+import java.time.OffsetDateTime
 
 /**
  * # Workspace File
@@ -35,6 +36,13 @@ interface WorkspaceFile {
    * Absolute path to this file in the S3 bucket.
    */
   val path: String
+
+  /**
+   * Last modified/created timestamp.
+   *
+   * This property will not be present on file put results.
+   */
+  val lastModified: OffsetDateTime?
 
   /**
    * Opens an input stream over the contents of this file.

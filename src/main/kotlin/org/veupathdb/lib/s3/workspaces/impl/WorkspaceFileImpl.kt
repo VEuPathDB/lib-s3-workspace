@@ -11,6 +11,9 @@ internal class WorkspaceFileImpl(
   private val root: S3Object,
   private val buck: S3Bucket,
 ) : WorkspaceFile {
+  override val lastModified
+    get() = root.lastModified
+
   override val size by lazy { root.stat()!!.size }
 
   override val name by lazy { path.substring(path.lastIndexOf('/')+1) }
