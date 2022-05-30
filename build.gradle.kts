@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib.s3"
-version = "2.2.0"
+version = "2.2.1"
 
 repositories {
   mavenLocal()
@@ -29,7 +29,7 @@ dependencies {
   implementation(kotlin("stdlib-jdk8"))
 
   implementation("org.veupathdb.lib.s3:s34k:0.7.0")
-  implementation("org.veupathdb.lib.s3:s34k-minio:0.3.0+s34k-0.7.0")
+  implementation("org.veupathdb.lib.s3:s34k-minio:0.3.1+s34k-0.7.0")
 
   implementation("org.veupathdb.lib:hash-id:2.0.0")
 
