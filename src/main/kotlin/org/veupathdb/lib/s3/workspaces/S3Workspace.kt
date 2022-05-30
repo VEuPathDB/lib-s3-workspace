@@ -58,7 +58,7 @@ interface S3Workspace {
    * communicating with the S3 server.
    */
   @Throws(NullPointerException::class, IllegalArgumentException::class, S34KError::class)
-  fun touch(path: String) : WorkspaceFile
+  fun touch(path: String): WorkspaceFile
 
   /**
    * Writes the given [InputStream] to a file at the given [path].
@@ -80,7 +80,7 @@ interface S3Workspace {
    * communicating with the S3 server.
    */
   @Throws(NullPointerException::class, IllegalArgumentException::class, S34KError::class)
-  fun write(path: String, stream: InputStream) : WorkspaceFile
+  fun write(path: String, stream: InputStream): WorkspaceFile
 
   /**
    * Opens a stream over the contents of the target file in the S3 store.
@@ -105,6 +105,25 @@ interface S3Workspace {
     S34KError::class
   )
   fun open(path: String): InputStream
+
+  /**
+   * Returns a [WorkspaceFile] wrapping the target file in the remote workspace,
+   * if such a file exists.
+   *
+   * @param path Relative path to the remote file.
+   *
+   * @return A [WorkspaceFile] wrapping the target file, if it exists, otherwise
+   * `null`.
+   *
+   * @throws NullPointerException If [path] is null.
+   *
+   * @throws IllegalArgumentException If [path] is blank.
+   *
+   * @throws S34KError If an error occurs in the underlying library while
+   * communicating with the S3 server.
+   */
+  @Throws(NullPointerException::class, IllegalArgumentException::class, S34KError::class)
+  operator fun get(path: String): WorkspaceFile?
 
   /**
    * Copies the given [File] ([from]) to a new file in the remote workspace
@@ -133,7 +152,7 @@ interface S3Workspace {
     FileNotFoundException::class,
     S34KError::class
   )
-  fun copy(from: File, to: String) : WorkspaceFile
+  fun copy(from: File, to: String): WorkspaceFile
 
   /**
    * Copies a file from the remote store to the specified local file ([to]).

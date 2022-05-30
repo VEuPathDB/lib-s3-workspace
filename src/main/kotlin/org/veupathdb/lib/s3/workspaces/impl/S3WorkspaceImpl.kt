@@ -22,6 +22,9 @@ internal open class S3WorkspaceImpl(
   override fun touch(path: String): WorkspaceFile =
     this.path.extendPath(path).let { WorkspaceFileImpl(it, s3.objects.touch(it), s3) }
 
+  override fun get(path: String): WorkspaceFile? =
+    this.path.extendPath(path).let { p -> s3.objects[p]?.let { WorkspaceFileImpl(p, it, s3) } }
+
   override fun write(path: String, stream: InputStream) : WorkspaceFile =
     this.path.extendPath(path).let { WorkspaceFileImpl(it, s3.objects.put(it, stream), s3) }
 
