@@ -61,6 +61,9 @@ internal open class S3WorkspaceImpl(
   override fun delete() =
     s3.objects.rmdir(path.toDirPath())
 
+  override fun delete(path: String) =
+    s3.objects.delete(this.path.extendPath(path))
+
   override fun hasSubWorkspace(id: HashID) =
     s3.objects.contains(path.extendPath(id.string, MarkerFile))
 

@@ -217,6 +217,16 @@ interface S3Workspace {
   fun delete()
 
   /**
+   * Deletes the target path from this workspace.
+   *
+   * @throws NullPointerException If [path] is `null`.
+   *
+   * @throws S34KError If an error occurs in the underlying library while
+   * communicating with the S3 server.
+   */
+  fun delete(path: String)
+
+  /**
    * Tests whether this workspace contains a sub-workspace with the given ID.
    *
    * @param id ID of the sub-workspace to test for.

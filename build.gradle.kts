@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib.s3"
-version = "2.3.0"
+version = "2.4.0"
 
 repositories {
   mavenLocal()
