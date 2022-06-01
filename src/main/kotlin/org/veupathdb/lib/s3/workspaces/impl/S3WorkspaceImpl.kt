@@ -48,15 +48,19 @@ internal open class S3WorkspaceImpl(
   override fun contains(path: String) =
     s3.objects.contains(this.path.extendPath(path))
 
-  override fun files(): List<String> =
-    s3.objects.list(path.toDirPath())
+  override fun files(): List<String> {
+    val dirPath = path.toDirPath()
+    return s3.objects.list(path.toDirPath())
       .stream()
       // Get the path of the object
       .map { it.path }
       // Filter out the .workspace marker
       .filter { !it.endsWith(".workspace") }
+      // Trim off the root path
+      .map { it.substring(dirPath.length) }
       // Collect the stream into a list
       .toList()
+  }
 
   override fun delete() =
     s3.objects.rmdir(path.toDirPath())

@@ -33,7 +33,7 @@ internal inline fun String.toDirPath() =
   }
 
 internal fun joinPaths(vararg segments: String): String {
-  // Oversize our buffer a little bit
+  // Oversize our buffer a bit
   //
   // Also bundle in some validation on the first pass through to bail before we
   // create the buffer.
