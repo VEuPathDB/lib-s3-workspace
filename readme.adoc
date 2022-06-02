@@ -3,6 +3,8 @@
 
 image:https://img.shields.io/badge/jvm-16-blue[title="Compatible with JVM 16"]
 image:https://img.shields.io/github/v/tag/veupathdb/lib-s3-workspace[GitHub tag (latest SemVer)]
+image:https://img.shields.io/badge/docs-javadoc-brightgreen[link="https://veupathdb.github.io/lib-s3-workspace/javadoc/"]
+image:https://img.shields.io/badge/docs-dokka-brightgreen[link="https://veupathdb.github.io/lib-s3-workspace/dokka/"]
 
 A thin wrapper library around https://github.com/VEuPathDB/lib-s34k[S34K] treating an S3 object store as a remote
 filesystem.
