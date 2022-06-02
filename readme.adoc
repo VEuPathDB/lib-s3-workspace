@@ -2,6 +2,7 @@
 :source-highlighter: highlightjs
 
 image:https://img.shields.io/badge/jvm-16-blue[title="Compatible with JVM 16"]
+image:https://img.shields.io/github/v/tag/veupathdb/lib-s3-workspace[GitHub tag (latest SemVer)]
 
 A thin wrapper library around https://github.com/VEuPathDB/lib-s34k[S34K] treating an S3 object store as a remote
 filesystem.
