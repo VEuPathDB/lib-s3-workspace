@@ -227,15 +227,15 @@ class WorkspaceTest(private val s3: S3Client) {
         return false
       }
 
-      if (list[0] != "bananas") {
+      if (list[0].relativePath != "bananas") {
         log.error("Failed! (remote object list contains invalid entries)")
         return false
       }
-      if (list[1] != "oranges") {
+      if (list[1].relativePath != "oranges") {
         log.error("Failed! (remote object list contains invalid entries)")
         return false
       }
-      if (list[2] != "speaker") {
+      if (list[2].relativePath != "speaker") {
         log.error("Failed! (remote object list contains invalid entries)")
         return false
       }
