@@ -184,13 +184,14 @@ interface S3Workspace {
    *
    * The workspace marker file `.workspace` will not be included in this list.
    *
-   * @return A list of relative paths to files contained in this workspace.
+   * @return A list of [WorkspaceFile] instances representing the files in this
+   * workspace.
    *
    * @throws S34KError If an error occurs in the underlying library while
    * communicating with the S3 server.
    */
   @Throws(S34KError::class)
-  fun files(): List<String>
+  fun files(): List<WorkspaceFile>
 
   /**
    * Tests whether this workspace contains the target file.

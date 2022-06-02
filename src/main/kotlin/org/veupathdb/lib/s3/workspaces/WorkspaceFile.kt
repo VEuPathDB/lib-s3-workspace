@@ -35,7 +35,12 @@ interface WorkspaceFile {
   /**
    * Absolute path to this file in the S3 bucket.
    */
-  val path: String
+  val absolutePath: String
+
+  /**
+   * Path to this file relative to the parent workspace.
+   */
+  val relativePath: String
 
   /**
    * Last modified/created timestamp.

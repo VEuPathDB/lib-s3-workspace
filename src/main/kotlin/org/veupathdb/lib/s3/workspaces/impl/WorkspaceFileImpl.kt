@@ -7,23 +7,27 @@ import java.io.File
 import java.io.InputStream
 
 internal class WorkspaceFileImpl(
-  override val path: String,
+  override val relativePath: String,
   private val root: S3Object,
   private val buck: S3Bucket,
 ) : WorkspaceFile {
+
+  override val absolutePath: String
+    get() = root.path
+
   override val lastModified
     get() = root.lastModified
 
   override val size by lazy { root.stat()!!.size }
 
-  override val name by lazy { path.substring(path.lastIndexOf('/')+1) }
+  override val name by lazy { relativePath.substring(relativePath.lastIndexOf('/')+1) }
 
   override fun open(): InputStream {
-    return buck.objects.open(path)!!.stream
+    return buck.objects.open(absolutePath)!!.stream
   }
 
   override fun download(localFile: File): File {
-    return buck.objects.download(path, localFile).localFile
+    return buck.objects.download(absolutePath, localFile).localFile
   }
 
   override fun delete() {
