@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <!-- NewPage -->
 <html lang="en"><head>
-    <title>WorkspaceFile 4.0.0 API </title>
+    <title>S3WorkspaceFactory 4.0.0 API </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="dc.created" content="2020-03-25">
     <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
@@ -40,7 +40,7 @@ var pathtoroot = "../../../../../";
     
     <li><a href="package-summary.html">Package</a></li>
     
-    <li>Class</li>
+    <li class="navBarCell1Rev">Class</li>
     
     <li><a href="package-tree.html">Tree</a></li>
     
@@ -89,7 +89,7 @@ var pathtoroot = "../../../../../";
 <main role="main">
     <div class="header">
         <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html"></a></div>
-        <h2 title="Interface WorkspaceFile" class="title">Interface WorkspaceFile</h2>
+        <h2 title="Class S3WorkspaceFactory" class="title">Class S3WorkspaceFactory</h2>
     </div>
     <div class="contentContainer">
         <!-- <ul class="inheritance">
@@ -114,10 +114,10 @@ var pathtoroot = "../../../../../";
                     <hr>
                     <pre class="wrap-overflow">
 
-public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>WorkspaceFile</a></span>
+public final class <span class="typeNameLabel"><a href=S3WorkspaceFactory.html>S3WorkspaceFactory</a></span>
 
                     </pre>
-                    <div class="block"><p>Represents a file in a workspace in the configured S3 store.</p></div>
+                    <div class="block"><p>Creates workspace instances backed by S3 files/directories.</p></div>
                 </li>
             </ul>
         </div>
@@ -188,6 +188,18 @@ public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>Workspac
                                         </tr>
 
                                         
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#S3WorkspaceFactory(S3Client,String)">S3WorkspaceFactory</a></span>(S3Client s3, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> bucket)</code></th>
+                                                <td class="colLast">Constructs a new <a href=S3WorkspaceFactory.html>S3WorkspaceFactory</a> instance with an empty default root directory.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#S3WorkspaceFactory(S3Client,String,String)">S3WorkspaceFactory</a></span>(S3Client s3, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> bucket, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> rootDir)</code></th>
+                                                <td class="colLast">Constructs a new <a href=S3WorkspaceFactory.html>S3WorkspaceFactory</a> instance.</td>
+                                            </tr>
+                                        
 
                                         </tbody>
                                     </table>
@@ -238,67 +250,19 @@ public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>Workspac
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a></code>
+                                            <td class="colFirst"><code>final <a href=S3Workspace.html>S3Workspace</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#open()>open</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=S3WorkspaceFactory.html#get(HashID)>get</a>(HashID id) </code>
                                             </th>
-                                            <td class="colLast">Opens an input stream over the contents of this file.</td>
+                                            <td class="colLast">Looks up and returns the workspace for the given HashID.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a></code>
+                                            <td class="colFirst"><code>final <a href=S3Workspace.html>S3Workspace</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#download(File)>download</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> localFile) </code>
+                                            <th class="colSecond" scope="row"><code><a href=S3WorkspaceFactory.html#create(HashID)>create</a>(HashID id) </code>
                                             </th>
-                                            <td class="colLast">Copies the contents of the file in the remote store to the given local file.</td>
-                                        </tr>
-                                        
-                                        <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#delete()>delete</a>() </code>
-                                            </th>
-                                            <td class="colLast">Deletes this file from the remote workspace.</td>
-                                        </tr>
-                                        
-                                        <tr id="i3" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html>Long</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#getSize()>getSize</a>() </code>
-                                            </th>
-                                            <td class="colLast">Size of this file.</td>
-                                        </tr>
-                                        
-                                        <tr id="i4" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#getName()>getName</a>() </code>
-                                            </th>
-                                            <td class="colLast">Base name of this file.</td>
-                                        </tr>
-                                        
-                                        <tr id="i5" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#getAbsolutePath()>getAbsolutePath</a>() </code>
-                                            </th>
-                                            <td class="colLast">Absolute path to this file in the S3 bucket.</td>
-                                        </tr>
-                                        
-                                        <tr id="i6" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#getRelativePath()>getRelativePath</a>() </code>
-                                            </th>
-                                            <td class="colLast">Path to this file relative to the parent workspace.</td>
-                                        </tr>
-                                        
-                                        <tr id="i7" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html>OffsetDateTime</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=WorkspaceFile.html#getLastModified()>getLastModified</a>() </code>
-                                            </th>
-                                            <td class="colLast">Last modified/created timestamp.</td>
+                                            <td class="colLast">Creates a new workspace.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -332,6 +296,56 @@ public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>Workspac
                             </a>
                                 <h3>Constructor Detail</h3>
                                 
+                                <a name="S3WorkspaceFactory(S3Client,String)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>S3WorkspaceFactory</h4>
+                                        <pre>S3WorkspaceFactory(S3Client s3, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> bucket)</pre>
+                                        <div class="block">Constructs a new <a href=S3WorkspaceFactory.html>S3WorkspaceFactory</a> instance with an empty default root directory.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>s3</code> - Initialized S3Client instance that will be used for all 'file operations'.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>bucket</code> - Name of the bucket that this factory and the workspaces it opens/creates reside in.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="S3WorkspaceFactory(S3Client,String,String)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>S3WorkspaceFactory</h4>
+                                        <pre>S3WorkspaceFactory(S3Client s3, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> bucket, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> rootDir)</pre>
+                                        <div class="block">Constructs a new <a href=S3WorkspaceFactory.html>S3WorkspaceFactory</a> instance.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>s3</code> - Initialized S3Client instance that will be used for all 'file operations'.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>bucket</code> - Name of the bucket that this factory and the workspaces it opens/creates reside in.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>rootDir</code> - Root directory that all workspaces reside in.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
                             </li>
                         </ul>
                     </section>
@@ -345,37 +359,22 @@ public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>Workspac
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="open()">
+                                <a id="get(HashID)">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
-                                        <h4>open</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=WorkspaceFile.html#open()>open</a>()</pre>
-                                        <div class="block"><p>Opens an input stream over the contents of this file.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="download(File)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>download</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> <a href=WorkspaceFile.html#download(File)>download</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> localFile)</pre>
-                                        <div class="block"><p>Copies the contents of the file in the remote store to the given local file.</p><p>The local file will be truncated before writing.</p></div>
+                                        <h4>get</h4>
+                                        <pre class="methodSignature"> final <a href=S3Workspace.html>S3Workspace</a> <a href=S3WorkspaceFactory.html#get(HashID)>get</a>(HashID id)</pre>
+                                        <div class="block"><p>Looks up and returns the workspace for the given HashID.</p><p>If no such workspace directory exists, this method returns <code>null</code>.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>localFile</code> - Local file into which the remote file's contents will be copied.</dd>
+                                            <dd><code>id</code> - ID of the workspace to return.</dd>
                                             
                                             
                                         </dl>
@@ -384,91 +383,25 @@ public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>Workspac
                                     </li>
                                 </ul>
                                 
-                                <a id="delete()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>delete</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=WorkspaceFile.html#delete()>delete</a>()</pre>
-                                        <div class="block"><p>Deletes this file from the remote workspace.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getSize()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getSize</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html>Long</a> <a href=WorkspaceFile.html#getSize()>getSize</a>()</pre>
-                                        <div class="block"><p>Size of this file.</p><p>This field is lazily populated by a call to the S3 store.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getName()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getName</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=WorkspaceFile.html#getName()>getName</a>()</pre>
-                                        <div class="block"><p>Base name of this file.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getAbsolutePath()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getAbsolutePath</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=WorkspaceFile.html#getAbsolutePath()>getAbsolutePath</a>()</pre>
-                                        <div class="block"><p>Absolute path to this file in the S3 bucket.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getRelativePath()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getRelativePath</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=WorkspaceFile.html#getRelativePath()>getRelativePath</a>()</pre>
-                                        <div class="block"><p>Path to this file relative to the parent workspace.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getLastModified()">
+                                <a id="create(HashID)">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getLastModified</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html>OffsetDateTime</a> <a href=WorkspaceFile.html#getLastModified()>getLastModified</a>()</pre>
-                                        <div class="block"><p>Last modified/created timestamp.</p><p>This property will not be present on file put results.</p></div>
+                                        <h4>create</h4>
+                                        <pre class="methodSignature"> final <a href=S3Workspace.html>S3Workspace</a> <a href=S3WorkspaceFactory.html#create(HashID)>create</a>(HashID id)</pre>
+                                        <div class="block"><p>Creates a new workspace.</p><p>If rootDir was set when constructing this <a href=S3WorkspaceFactory.html>S3WorkspaceFactory</a> instance, the created workspace will reside under that root directory.</p><p>If a workspace already exists with the given ID, this method will fail with a <a href=WorkspaceAlreadyExistsError.html>WorkspaceAlreadyExistsError</a>.</p><p>As S3 has no concept of directories, a workspace is marked using an empty file named '.workspace' in the workspace root.  This file will not be listed when attempting to fetch a list of files in the workspace.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>id</code> - ID of the workspace to create.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -499,7 +432,7 @@ public interface <span class="typeNameLabel"><a href=WorkspaceFile.html>Workspac
     
     <li><a href="package-summary.html">Package</a></li>
     
-    <li>Class</li>
+    <li class="navBarCell1Rev">Class</li>
     
     <li><a href="package-tree.html">Tree</a></li>
     

@@ -128,13 +128,52 @@ var pathtoroot = "../";
                 
                 <span class="memberNameLink">
                 
-                    <a href="../org/veupathdb/lib/s3/workspaces/WorkspaceFactory.html#get(HashID)">get(HashID)</a>
+                    <a href="../org/veupathdb/lib/s3/workspaces/S3Workspace.html#get(String)">get(String)</a>
                 
-                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/WorkspaceFactory.html>WorkspaceFactory</a>
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/S3Workspace.html>S3Workspace</a>
+                
+
+            </dt>
+            <dd>Returns a <a href=../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html>WorkspaceFile</a> wrapping the target file in the remote workspace, if such a file exists.</dd>
+
+        
+            <dt>
+                
+                <span class="memberNameLink">
+                
+                    <a href="../org/veupathdb/lib/s3/workspaces/S3WorkspaceFactory.html#get(HashID)">get(HashID)</a>
+                
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/S3WorkspaceFactory.html>S3WorkspaceFactory</a>
                 
 
             </dt>
             <dd>Looks up and returns the workspace for the given HashID.</dd>
+
+        
+            <dt>
+                
+                <span class="memberNameLink">
+                
+                    <a href="../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html#get(String)">get(String)</a>
+                
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html>SubS3Workspace</a>
+                
+
+            </dt>
+            <dd>Returns a <a href=../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html>WorkspaceFile</a> wrapping the target file in the remote workspace, if such a file exists.</dd>
+
+        
+            <dt>
+                
+                <span class="memberNameLink">
+                
+                    <a href="../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html#getAbsolutePath()">getAbsolutePath()</a>
+                
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html>WorkspaceFile</a>
+                
+
+            </dt>
+            <dd>Absolute path to this file in the S3 bucket.</dd>
 
         
             <dt>
@@ -154,9 +193,9 @@ var pathtoroot = "../";
                 
                 <span class="memberNameLink">
                 
-                    <a href="../org/veupathdb/lib/s3/workspaces/SubWorkspace.html#getId()">getId()</a>
+                    <a href="../org/veupathdb/lib/s3/workspaces/S3Workspace.html#getId()">getId()</a>
                 
-                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/SubWorkspace.html>SubWorkspace</a>
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/S3Workspace.html>S3Workspace</a>
                 
 
             </dt>
@@ -167,9 +206,9 @@ var pathtoroot = "../";
                 
                 <span class="memberNameLink">
                 
-                    <a href="../org/veupathdb/lib/s3/workspaces/Workspace.html#getId()">getId()</a>
+                    <a href="../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html#getId()">getId()</a>
                 
-                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/Workspace.html>Workspace</a>
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html>SubS3Workspace</a>
                 
 
             </dt>
@@ -187,6 +226,19 @@ var pathtoroot = "../";
 
             </dt>
             <dd>ID of the workspace whose creation was attempted.</dd>
+
+        
+            <dt>
+                
+                <span class="memberNameLink">
+                
+                    <a href="../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html#getLastModified()">getLastModified()</a>
+                
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html>WorkspaceFile</a>
+                
+
+            </dt>
+            <dd>Last modified/created timestamp.</dd>
 
         
             <dt>
@@ -232,9 +284,9 @@ var pathtoroot = "../";
                 
                 <span class="memberNameLink">
                 
-                    <a href="../org/veupathdb/lib/s3/workspaces/SubWorkspace.html#getParent()">getParent()</a>
+                    <a href="../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html#getParent()">getParent()</a>
                 
-                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/SubWorkspace.html>SubWorkspace</a>
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html>SubS3Workspace</a>
                 
 
             </dt>
@@ -245,13 +297,39 @@ var pathtoroot = "../";
                 
                 <span class="memberNameLink">
                 
-                    <a href="../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html#getPath()">getPath()</a>
+                    <a href="../org/veupathdb/lib/s3/workspaces/S3Workspace.html#getPath()">getPath()</a>
+                
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/S3Workspace.html>S3Workspace</a>
+                
+
+            </dt>
+            <dd>Absolute path to this workspace (including the workspace ID)</dd>
+
+        
+            <dt>
+                
+                <span class="memberNameLink">
+                
+                    <a href="../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html#getPath()">getPath()</a>
+                
+                </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/SubS3Workspace.html>SubS3Workspace</a>
+                
+
+            </dt>
+            <dd>Absolute path to this workspace (including the workspace ID)</dd>
+
+        
+            <dt>
+                
+                <span class="memberNameLink">
+                
+                    <a href="../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html#getRelativePath()">getRelativePath()</a>
                 
                 </span> - function in org.veupathdb.lib.s3.workspaces.<a href=../org/veupathdb/lib/s3/workspaces/WorkspaceFile.html>WorkspaceFile</a>
                 
 
             </dt>
-            <dd>Absolute path to this file in the S3 bucket.</dd>
+            <dd>Path to this file relative to the parent workspace.</dd>
 
         
             <dt>
