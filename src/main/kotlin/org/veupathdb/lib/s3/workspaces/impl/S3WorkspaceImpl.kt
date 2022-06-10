@@ -29,7 +29,7 @@ internal open class S3WorkspaceImpl(
     this.path.extendPath(path).let { WorkspaceFileImpl(it, s3.objects.put(it, stream), s3) }
 
   override fun copy(from: File, to: String): WorkspaceFile =
-    this.path.extendPath(to).let { WorkspaceFileImpl(to, s3.objects.upload(to, from), s3) }
+    this.path.extendPath(to).let { WorkspaceFileImpl(to, s3.objects.upload(it, from), s3) }
 
   override fun open(path: String): InputStream =
     this.path.extendPath(path).let {
