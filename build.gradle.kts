@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("jvm") version "1.6.20"
+  kotlin("jvm") version "1.6.21"
   id("org.jetbrains.dokka") version "1.6.10"
   java
   `maven-publish`
@@ -29,7 +29,7 @@ dependencies {
   implementation(kotlin("stdlib-jdk8"))
 
   implementation("org.veupathdb.lib.s3:s34k:0.7.0")
-  implementation("org.veupathdb.lib.s3:s34k-minio:0.3.1+s34k-0.7.0")
+  implementation("org.veupathdb.lib.s3:s34k-minio:0.3.2+s34k-0.7.0")
 
   implementation("org.veupathdb.lib:hash-id:1.0.2")
 

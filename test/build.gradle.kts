@@ -1,5 +1,5 @@
 plugins {
-  kotlin("jvm") version "1.6.20"
+  kotlin("jvm") version "1.6.21"
   id("com.github.johnrengelman.shadow") version "7.1.2"
   application
 }
@@ -22,7 +22,7 @@ dependencies {
   implementation(kotlin("stdlib"))
 
   implementation("org.veupathdb.lib:hash-id:2.0.0")
-  implementation("org.veupathdb.lib.s3:s34k:0.4.0")
+  implementation("org.veupathdb.lib.s3:s34k:0.7.0")
   implementation("org.veupathdb.lib.s3:workspaces:4.0.0")
 
   implementation("org.slf4j:slf4j-api:1.7.36")
