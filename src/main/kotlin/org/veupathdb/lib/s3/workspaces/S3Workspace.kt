@@ -139,7 +139,8 @@ interface S3Workspace {
    *
    * @throws NullPointerException If either [to] or [from] is null.
    *
-   * @throws IllegalArgumentException If the given [to] is blank.
+   * @throws IllegalArgumentException If the given [to] is blank or if the given
+   * [from] file handle points to a directory.
    *
    * @throws FileNotFoundException If the given [from] does not exist.
    *
