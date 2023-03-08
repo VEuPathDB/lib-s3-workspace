@@ -24,6 +24,10 @@ repositories {
   }
 }
 
+kotlin {
+  jvmToolchain(16)
+}
+
 dependencies {
   implementation(kotlin("stdlib"))
 
@@ -43,9 +47,6 @@ dependencies {
 }
 
 java {
-  sourceCompatibility = JavaVersion.VERSION_16
-  targetCompatibility = JavaVersion.VERSION_16
-
   withJavadocJar()
   withSourcesJar()
 }
