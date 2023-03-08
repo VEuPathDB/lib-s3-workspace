@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("jvm") version "1.6.21"
-  id("org.jetbrains.dokka") version "1.6.10"
+  kotlin("jvm") version "1.8.0"
+  id("org.jetbrains.dokka") version "1.7.20"
   java
   `maven-publish`
 }
@@ -26,7 +26,6 @@ repositories {
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation(kotlin("stdlib-jdk8"))
 
   implementation("org.veupathdb.lib.s3:s34k-minio:0.4.0+s34k-0.8.0")
 
