@@ -75,7 +75,7 @@ internal class S3WorkspaceFactoryTest {
         val objects = mock(ObjectContainer::class.java)
         val bucket  = mock(S3Bucket::class.java)
 
-        val id = HashID.ofHash("12345678901234561234567890123456")
+        val id = HashID("12345678901234561234567890123456")
 
         `when`(client.buckets).thenReturn(buckets)
         `when`(buckets.exists(name)).thenReturn(true)
@@ -99,7 +99,7 @@ internal class S3WorkspaceFactoryTest {
         val buckets = mock(BucketContainer::class.java)
         val objects = mock(ObjectContainer::class.java)
         val bucket  = mock(S3Bucket::class.java)
-        val hash    = HashID.ofHash("12345678901234561234567890123456")
+        val hash    = HashID("12345678901234561234567890123456")
 
         `when`(client.buckets).thenReturn(buckets)
         `when`(buckets.exists(name)).thenReturn(true)
@@ -128,7 +128,7 @@ internal class S3WorkspaceFactoryTest {
         val buckets = mock(BucketContainer::class.java)
         val objects = mock(ObjectContainer::class.java)
         val name    = BucketName("waka-waka-waka")
-        val hash    = HashID.ofHash("12345678901234561234567890123456")
+        val hash    = HashID("12345678901234561234567890123456")
 
         `when`(client.buckets).thenReturn(buckets)
         `when`(buckets.exists(name)).thenReturn(true)
@@ -156,7 +156,7 @@ internal class S3WorkspaceFactoryTest {
         val objects = mock(ObjectContainer::class.java)
         val bucket  = mock(S3Bucket::class.java)
         val derps   = mock(S3Object::class.java)
-        val hash    = HashID.ofHash("12345678901234561234567890123456")
+        val hash    = HashID("12345678901234561234567890123456")
 
         `when`(client.buckets).thenReturn(buckets)
         `when`(buckets.exists(name)).thenReturn(true)

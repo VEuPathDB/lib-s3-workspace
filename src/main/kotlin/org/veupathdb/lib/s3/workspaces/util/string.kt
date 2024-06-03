@@ -48,7 +48,7 @@ internal fun joinPaths(vararg segments: String): String {
   // Iterate over everything except the last element
   for (i in 0 until last) {
     // Skip blank elements and empty slashes
-    if (segments[i].isEmpty() || segments[i] == "/")
+    if (segments[i].isBlank() || segments[i] == "/")
       continue
 
     if (segments[i].startsWith('/'))

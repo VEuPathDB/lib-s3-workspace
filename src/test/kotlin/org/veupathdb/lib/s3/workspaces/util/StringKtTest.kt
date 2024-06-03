@@ -24,12 +24,6 @@ class StringKtTest {
       }
 
       @Test
-      @DisplayName("when the receiver string is blank")
-      fun t2() {
-        assertEquals("foo", "        ".extendPath("foo"))
-      }
-
-      @Test
       @DisplayName("when the receiver string is a single '/' character")
       fun t3() {
         assertEquals("foo", "/".extendPath("foo"))

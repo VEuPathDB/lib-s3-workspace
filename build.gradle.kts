@@ -32,7 +32,7 @@ dependencies {
   implementation(kotlin("stdlib"))
   implementation(kotlin("stdlib-jdk8"))
 
-  implementation("org.veupathdb.lib.s3:s34k-minio:0.4.1+s34k-0.8.0")
+  implementation("org.veupathdb.lib.s3:s34k-minio:0.7.2+s34k-0.11.0")
 
   implementation("org.veupathdb.lib:hash-id:1.0.2")
 
