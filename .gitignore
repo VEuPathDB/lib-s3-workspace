@@ -6,3 +6,9 @@
 /test/.gradle/
 /out/
 /test/out/
+
+/lib/java/docs/
+/lib/java/build/
+
+/lib/kotlin/build/
+/lib/kotlin/docs/

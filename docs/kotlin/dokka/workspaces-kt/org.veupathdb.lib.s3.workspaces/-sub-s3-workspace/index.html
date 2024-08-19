@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>SubS3Workspace</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            workspaces-kt
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":lib:workspaces-kt:dokkaHtml/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="workspaces-kt::org.veupathdb.lib.s3.workspaces/SubS3Workspace///PointingToDeclaration//-1810630088">
+  <div class="breadcrumbs"><a href="../../../index.html">workspaces-kt</a><span class="delimiter">/</span><a href="../index.html">org.veupathdb.lib.s3.workspaces</a><span class="delimiter">/</span><span class="current">SubS3Workspace</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Sub</span><wbr></wbr><span><span>S3Workspace</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">SubS3Workspace</a> : <a href="../-s3-workspace/index.html">S3Workspace</a></div><h1 class="">Sub-Workspace</h1><p class="paragraph">Represents a nested workspace for a job in which workspace specific files and directories reside.</p><p class="paragraph">A sub-workspace, like a <a href="../-s3-workspace/index.html">S3Workspace</a>, may have sub-workspaces contained inside it which are accessible via the <span data-unresolved-link="org.veupathdb.lib.s3.workspaces/SubS3Workspace/openSubWorkspace/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/">openSubWorkspace</span> method.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Elizabeth Paige Harper https://github.com/Foxcapades</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">v2.0.0</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-688768435%2FProperties%2F-1810630088" anchor-label="id" id="-688768435%2FProperties%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-688768435%2FProperties%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="../-s3-workspace/id.html">id</a><span class="token operator">: </span><span data-unresolved-link="org.veupathdb.lib.hash_id/HashID///PointingToDeclaration/">HashID</span></div><div class="brief "><p class="paragraph">ID of this workspace.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1062933652%2FProperties%2F-1810630088" anchor-label="parent" id="1062933652%2FProperties%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="parent.html"><span><span>parent</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1062933652%2FProperties%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="parent.html">parent</a><span class="token operator">: </span><a href="../-s3-workspace/index.html">S3Workspace</a></div><div class="brief "><p class="paragraph">Parent workspace of this sub-workspace.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="40393667%2FProperties%2F-1810630088" anchor-label="path" id="40393667%2FProperties%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/path.html"><span><span>path</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="40393667%2FProperties%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="../-s3-workspace/path.html">path</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Absolute path to this workspace (including the workspace ID)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1766113765%2FFunctions%2F-1810630088" anchor-label="contains" id="-1766113765%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/contains.html"><span><span>contains</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1766113765%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/contains.html"><span class="token function">contains</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Tests whether this workspace contains the target file.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-453734238%2FFunctions%2F-1810630088" anchor-label="copy" id="-453734238%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/copy.html"><span><span>copy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-453734238%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/copy.html"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">from<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html">File</a><span class="token punctuation">, </span></span><span class="parameter ">to<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-workspace-file/index.html">WorkspaceFile</a></div><div class="brief "><p class="paragraph">Copies the given <a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html">File</a> (<a href="../-s3-workspace/copy.html">from</a>) to a new file in the remote workspace under the given path (<a href="../-s3-workspace/copy.html">to</a>).</p></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/copy.html"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">from<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">to<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html">File</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Copies a file from the remote store to the specified local file (<a href="../-s3-workspace/copy.html">to</a>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="446099348%2FFunctions%2F-1810630088" anchor-label="createSubWorkspace" id="446099348%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/create-sub-workspace.html"><span>create</span><wbr></wbr><span>Sub</span><wbr></wbr><span><span>Workspace</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="446099348%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/create-sub-workspace.html"><span class="token function">createSubWorkspace</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><span data-unresolved-link="org.veupathdb.lib.hash_id/HashID///PointingToDeclaration/">HashID</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">SubS3Workspace</a></div><div class="brief "><p class="paragraph">Creates a sub-workspace under this workspace with the given <a href="../-s3-workspace/create-sub-workspace.html">id</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1791476904%2FFunctions%2F-1810630088" anchor-label="delete" id="-1791476904%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/delete.html"><span><span>delete</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1791476904%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/delete.html"><span class="token function">delete</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Recursively deletes this workspace and all of its contents.</p></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/delete.html"><span class="token function">delete</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Deletes the target path from this workspace.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1434079060%2FFunctions%2F-1810630088" anchor-label="exists" id="-1434079060%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/exists.html"><span><span>exists</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1434079060%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/exists.html"><span class="token function">exists</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Tests whether this workspace still exists.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1186773509%2FFunctions%2F-1810630088" anchor-label="files" id="-1186773509%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/files.html"><span><span>files</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1186773509%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/files.html"><span class="token function">files</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-workspace-file/index.html">WorkspaceFile</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Recursively lists all the files in the remote 'directory'.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="274245448%2FFunctions%2F-1810630088" anchor-label="get" id="274245448%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/get.html"><span><span>get</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="274245448%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-workspace-file/index.html">WorkspaceFile</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns a <a href="../-workspace-file/index.html">WorkspaceFile</a> wrapping the target file in the remote workspace, if such a file exists.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-271875584%2FFunctions%2F-1810630088" anchor-label="hasSubWorkspace" id="-271875584%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/has-sub-workspace.html"><span>has</span><wbr></wbr><span>Sub</span><wbr></wbr><span><span>Workspace</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-271875584%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/has-sub-workspace.html"><span class="token function">hasSubWorkspace</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><span data-unresolved-link="org.veupathdb.lib.hash_id/HashID///PointingToDeclaration/">HashID</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Tests whether this workspace contains a sub-workspace with the given ID.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1905404038%2FFunctions%2F-1810630088" anchor-label="open" id="1905404038%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/open.html"><span><span>open</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1905404038%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/open.html"><span class="token function">open</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html">InputStream</a></div><div class="brief "><p class="paragraph">Opens a stream over the contents of the target file in the S3 store.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="915788230%2FFunctions%2F-1810630088" anchor-label="openSubWorkspace" id="915788230%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/open-sub-workspace.html"><span>open</span><wbr></wbr><span>Sub</span><wbr></wbr><span><span>Workspace</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="915788230%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/open-sub-workspace.html"><span class="token function">openSubWorkspace</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><span data-unresolved-link="org.veupathdb.lib.hash_id/HashID///PointingToDeclaration/">HashID</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">SubS3Workspace</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Attempts to open the target workspace with the given <a href="../-s3-workspace/open-sub-workspace.html">id</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-724309583%2FFunctions%2F-1810630088" anchor-label="touch" id="-724309583%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/touch.html"><span><span>touch</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-724309583%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/touch.html"><span class="token function">touch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-workspace-file/index.html">WorkspaceFile</a></div><div class="brief "><p class="paragraph">Creates an empty file in this workspace with the given <a href="../-s3-workspace/touch.html">path</a> if no such file already exists.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1539646810%2FFunctions%2F-1810630088" anchor-label="write" id="-1539646810%2FFunctions%2F-1810630088" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":lib:workspaces-kt:dokkaHtml/main" data-filterable-set=":lib:workspaces-kt:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-s3-workspace/write.html"><span><span>write</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1539646810%2FFunctions%2F-1810630088"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:workspaces-kt:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../-s3-workspace/write.html"><span class="token function">write</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">stream<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html">InputStream</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-workspace-file/index.html">WorkspaceFile</a></div><div class="brief "><p class="paragraph">Writes the given <a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html">InputStream</a> to a file at the given <a href="../-s3-workspace/write.html">path</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
