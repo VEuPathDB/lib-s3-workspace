@@ -26,7 +26,7 @@ allprojects {
   }
 }
 
-subprojects {
+configure(listOf(project(":lib:workspaces-kt"), project(":lib:workspaces-java"))) {
   apply(plugin = "java")
   apply(plugin = "maven-publish")
   apply(plugin = "org.jetbrains.dokka")
@@ -62,7 +62,12 @@ subprojects {
 
     publications {
       create<MavenPublication>("gpr") {
+        artifactId = project.name
+        groupId = rootProject.group.toString()
+        version = rootProject.version.toString()
+
         from(components["java"])
+
         pom {
           name.set("S3 Workspaces")
           description.set("Workspaces backed by an S3 object store.")

@@ -7,6 +7,8 @@
 /out/
 /test/out/
 
+/lib/build/
+
 /lib/java/docs/
 /lib/java/build/
 
