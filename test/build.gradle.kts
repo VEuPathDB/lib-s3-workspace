@@ -3,6 +3,10 @@ plugins {
   id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
+kotlin {
+  jvmToolchain(16)
+}
+
 repositories {
   mavenLocal()
   mavenCentral()
@@ -35,11 +39,6 @@ tasks.shadowJar {
   }
 
   exclude("**/Log4j2Plugins.dat")
-}
-
-java {
-  sourceCompatibility = JavaVersion.VERSION_16
-  targetCompatibility = JavaVersion.VERSION_16
 }
 
 tasks.test {

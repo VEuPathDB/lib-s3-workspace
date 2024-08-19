@@ -1,5 +1,6 @@
 package org.veupathdb.lib.s3.workspaces
 
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -83,7 +84,7 @@ internal class S3WorkspaceFactoryTest {
         `when`(bucket.objects).thenReturn(objects)
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(false)
 
-        assertNull(S3WorkspaceFactory(client, "hello-world")[id])
+        assertNull(runBlocking { S3WorkspaceFactory(client, "hello-world").get(id) })
       }
     }
 
@@ -107,7 +108,7 @@ internal class S3WorkspaceFactoryTest {
         `when`(bucket.objects).thenReturn(objects)
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(true)
 
-        assertNotNull(S3WorkspaceFactory(client, name.name)[hash])
+        assertNotNull(runBlocking { S3WorkspaceFactory(client, name.name).get(hash) })
       }
     }
   }
@@ -138,7 +139,7 @@ internal class S3WorkspaceFactoryTest {
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(true)
 
         assertThrows<WorkspaceAlreadyExistsError> {
-          S3WorkspaceFactory(client, name.name).create(hash)
+          runBlocking { S3WorkspaceFactory(client, name.name).create(hash) }
         }
       }
     }
@@ -165,7 +166,7 @@ internal class S3WorkspaceFactoryTest {
         `when`(objects.contains("12345678901234561234567890123456/.workspace")).thenReturn(false)
         `when`(objects.touch("12345678901234561234567890123456/.workspace")).thenReturn(derps)
 
-        assertNotNull(S3WorkspaceFactory(client, name.name).create(hash))
+        assertNotNull(runBlocking { S3WorkspaceFactory(client, name.name).create(hash) })
       }
     }
   }
