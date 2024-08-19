@@ -32,3 +32,5 @@ project(":lib:kotlin").name = "workspaces-kt"
 
 include(":lib:java")
 project(":lib:java").name = "workspaces-java"
+
+include(":test")
