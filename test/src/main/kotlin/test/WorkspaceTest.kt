@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.S3Client
 import org.veupathdb.lib.s3.s34k.fields.BucketName
-import org.veupathdb.lib.s3.workspaces.S3WorkspaceFactory
+import org.veupathdb.lib.s3.workspaces.java.S3WorkspaceFactory
 
 class WorkspaceTest(private val s3: S3Client) {
 
@@ -36,7 +36,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create workspace
       bucket.objects.touch("${hashID.string}/.workspace")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -65,7 +65,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create workspace marker so we can get a handle on the workspace
       val touched = bucket.objects.touch("${hashID.string}/.workspace")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -97,7 +97,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create workspace marker so we can get a handle on the workspace
       bucket.objects.touch("${hashID.string}/.workspace")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -130,7 +130,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create workspace marker so we can get a handle on the workspace
       bucket.objects.touch("${hashID.string}/.workspace")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -173,7 +173,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create workspace marker so we can get a handle on the workspace
       bucket.objects.touch("${hashID.string}/.workspace")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -213,7 +213,7 @@ class WorkspaceTest(private val s3: S3Client) {
       bucket.objects.touch("${hashID.string}/speaker")
       bucket.objects.touch("${hashID.string}/oranges")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -261,7 +261,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create the object we're going to test for
       bucket.objects.touch("${hashID.string}/$objName")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")
@@ -291,7 +291,7 @@ class WorkspaceTest(private val s3: S3Client) {
       // Create workspace marker so we can get a handle on the workspace
       bucket.objects.touch("${hashID.string}/.workspace")
 
-      val ws = factory[hashID]
+      val ws = factory.get(hashID)
 
       if (ws == null) {
         log.error("Failed! (ws was null)")

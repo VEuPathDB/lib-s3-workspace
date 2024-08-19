@@ -8,10 +8,11 @@ services:
       - server
       - --address=0.0.0.0:80
       - workspace
+
   test:
     build:
-      dockerfile: Dockerfile
-      context: .
+      dockerfile: test/Dockerfile
+      context: ..
     environment:
       ACCESS_KEY: ${MINIO_ACCESS_KEY}
       ACCESS_TOKEN: ${MINIO_ACCESS_TOKEN}

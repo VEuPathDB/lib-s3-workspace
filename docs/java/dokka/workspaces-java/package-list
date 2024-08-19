@@ -1,0 +1,45 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java////PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/index.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace///PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/index.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/contains/#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/contains.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/copy/#java.io.File#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/copy.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/copy/#kotlin.String#java.io.File/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/copy.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/createSubWorkspace/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/create-sub-workspace.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/delete/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/delete.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/delete/#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/delete.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/exists/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/exists.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/files/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/files.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/get/#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/get.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/hasSubWorkspace/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/has-sub-workspace.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/id/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/id.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/open/#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/open.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/openSubWorkspace/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/open-sub-workspace.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/path/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/path.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/touch/#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/touch.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3Workspace/write/#kotlin.String#java.io.InputStream/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace/write.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3WorkspaceFactory///PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace-factory/index.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3WorkspaceFactory/S3WorkspaceFactory/#org.veupathdb.lib.s3.s34k.S3Client#kotlin.String#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace-factory/-s3-workspace-factory.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3WorkspaceFactory/S3WorkspaceFactory/#org.veupathdb.lib.s3.s34k.S3Client#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace-factory/-s3-workspace-factory.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3WorkspaceFactory/S3WorkspaceFactory/#org.veupathdb.lib.s3.workspaces.S3WorkspaceFactory/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace-factory/-s3-workspace-factory.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3WorkspaceFactory/create/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace-factory/create.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/S3WorkspaceFactory/get/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-s3-workspace-factory/get.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/SubS3Workspace///PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-sub-s3-workspace/index.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/SubS3Workspace/parent/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-sub-s3-workspace/parent.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceAlreadyExistsError///PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-already-exists-error/index.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceAlreadyExistsError/WorkspaceAlreadyExistsError/#org.veupathdb.lib.hash_id.HashID#kotlin.String#kotlin.Throwable/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-already-exists-error/-workspace-already-exists-error.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceAlreadyExistsError/WorkspaceAlreadyExistsError/#org.veupathdb.lib.hash_id.HashID#kotlin.String/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-already-exists-error/-workspace-already-exists-error.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceAlreadyExistsError/WorkspaceAlreadyExistsError/#org.veupathdb.lib.hash_id.HashID#kotlin.Throwable/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-already-exists-error/-workspace-already-exists-error.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceAlreadyExistsError/WorkspaceAlreadyExistsError/#org.veupathdb.lib.hash_id.HashID/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-already-exists-error/-workspace-already-exists-error.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceAlreadyExistsError/id/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-already-exists-error/id.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile///PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/index.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/absolutePath/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/absolute-path.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/delete/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/delete.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/download/#java.io.File/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/download.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/lastModified/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/last-modified.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/name/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/name.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/open/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/open.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/relativePath/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/relative-path.html
+$dokka.location:org.veupathdb.lib.s3.workspaces.java/WorkspaceFile/size/#/PointingToDeclaration/workspaces-java/org.veupathdb.lib.s3.workspaces.java/-workspace-file/size.html
+org.veupathdb.lib.s3.workspaces.java
+

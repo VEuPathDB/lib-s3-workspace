@@ -5,4 +5,4 @@ while ! nc -z minio 80; do
   sleep 1
 done
 
-java -jar /build/libs/service.jar
+java -jar /test/build/libs/service.jar
