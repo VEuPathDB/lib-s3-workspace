@@ -30,6 +30,10 @@ tasks.shadowJar {
   archiveClassifier.set("")
   archiveVersion.set("")
 
+  manifest {
+    attributes["Main-Class"] = "test.AppKt"
+  }
+
   exclude("**/Log4j2Plugins.dat")
 }
 

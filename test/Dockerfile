@@ -1,16 +1,19 @@
-FROM alpine:3.15.4
+FROM amazoncorretto:16-alpine-jdk
 
 ARG GITHUB_USERNAME
 ARG GITHUB_TOKEN
 
-RUN apk -U add --no-cache openjdk17-jdk
-
-ENV PATH "$PATH:/gradle-${GRADLE_VERSION}/bin/"
-
-COPY ["settings.gradle.kts", "build.gradle.kts", "gradlew", "startup.sh", "./"]
-COPY src src/
+# Cache gradle so repeated builds don't take so long
+COPY [ "settings.gradle.kts", "gradlew", "./" ]
 COPY gradle gradle/
 
-RUN ./gradlew --no-daemon shadowJar
+RUN ./gradlew tasks > /dev/null
+
+# Project build
+COPY [ "build.gradle.kts", "test/startup.sh", "./" ]
+COPY lib lib/
+COPY test test/
+
+RUN ./gradlew :test:shadowJar
 
 CMD ./startup.sh

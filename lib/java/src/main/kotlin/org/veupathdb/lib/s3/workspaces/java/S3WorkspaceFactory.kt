@@ -6,6 +6,7 @@ import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.S3Client
 import org.veupathdb.lib.s3.s34k.errors.S34KError
 import org.veupathdb.lib.s3.s34k.fields.BucketName
+import org.veupathdb.lib.s3.workspaces.java.impl.S3WorkspaceImpl
 
 import org.veupathdb.lib.s3.workspaces.S3WorkspaceFactory as KTFactory
 import org.veupathdb.lib.s3.workspaces.WorkspaceAlreadyExistsError as KTError
@@ -18,7 +19,7 @@ import org.veupathdb.lib.s3.workspaces.WorkspaceAlreadyExistsError as KTError
  * @author Elizabeth Paige Harper [https://github.com/Foxcapades]
  */
 @Suppress("unused")
-class S3WorkspaceFactory(private val delegate: KTFactory) {
+class S3WorkspaceFactory private constructor(private val delegate: KTFactory) {
 
   /**
    * Constructs a new [S3WorkspaceFactory] instance with an empty default root
@@ -89,7 +90,8 @@ class S3WorkspaceFactory(private val delegate: KTFactory) {
    * while attempting to communicate with the S3 server.
    */
   @Throws(NullPointerException::class, S34KError::class)
-  fun get(id: HashID) = runBlocking { delegate.get(id) }
+  fun get(id: HashID): S3Workspace? =
+    runBlocking { delegate.get(id)?.let(::S3WorkspaceImpl) }
 
   /**
    * Creates a new workspace.
@@ -116,11 +118,12 @@ class S3WorkspaceFactory(private val delegate: KTFactory) {
    * while attempting to communicate with the S3 server.
    */
   @Throws(NullPointerException::class, WorkspaceAlreadyExistsError::class, S34KError::class)
-  fun create(id: HashID) = runBlocking {
-    try {
-      delegate.create(id)
-    } catch (e: KTError) {
-      throw WorkspaceAlreadyExistsError(e.id)
+  fun create(id: HashID): S3Workspace =
+    runBlocking {
+      try {
+        S3WorkspaceImpl(delegate.create(id))
+      } catch (e: KTError) {
+        throw WorkspaceAlreadyExistsError(e.id)
+      }
     }
-  }
 }
