@@ -4,7 +4,7 @@ dependencyResolutionManagement {
   versionCatalogs {
     create("libs") {
       // Versions
-      version("s34k", "0.7.2+s34k-0.11.0")
+      version("s34k", "0.11.0")
       version("hashID", "1.0.2")
       version("slf4j", "1.7.36")
 
@@ -14,7 +14,7 @@ dependencyResolutionManagement {
       version("kotlin-coroutines", "1.8.1")
 
       // Libraries
-      library("s34k", "org.veupathdb.lib.s3", "s34k-minio").versionRef("s34k")
+      library("s34k", "org.veupathdb.lib.s3", "s34k").versionRef("s34k")
       library("hashID", "org.veupathdb.lib", "hash-id").versionRef("hashID")
 
       library("kotlin.co.core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").versionRef("kotlin.coroutines")

@@ -23,6 +23,7 @@ repositories {
 
 dependencies {
   implementation(project(":lib:workspaces-java"))
+  implementation("org.veupathdb.lib.s3:s34k-minio:0.7.2+s34k-0.11.0")
 
   implementation("org.apache.logging.log4j:log4j-api:2.17.2")
   implementation("org.apache.logging.log4j:log4j-core:2.17.2")
