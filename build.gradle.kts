@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.veupathdb.lib.s3"
-version = "5.0.0"
+version = "5.1.0"
 
 allprojects {
   repositories {

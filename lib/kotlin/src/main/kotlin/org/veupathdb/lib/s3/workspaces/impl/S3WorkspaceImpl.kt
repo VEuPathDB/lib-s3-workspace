@@ -1,5 +1,7 @@
 package org.veupathdb.lib.s3.workspaces.impl
 
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import org.veupathdb.lib.hash_id.HashID
 import org.veupathdb.lib.s3.s34k.buckets.S3Bucket
 import org.veupathdb.lib.s3.s34k.errors.ObjectNotFoundError
@@ -62,11 +64,31 @@ internal open class S3WorkspaceImpl(
    return outList
   }
 
-  override suspend fun delete() =
-    s3.objects.rmdir(path.toDirPath())
+  override suspend fun delete() {
+    val dirPath = path.toDirPath()
 
-  override suspend fun delete(path: String) =
-    s3.objects.delete(this.path.extendPath(path))
+    s3.objects.rmdir(dirPath)
+
+    // Workaround for MinIO bug with deleted objects still being available after
+    // a success response on a delete request.
+    coroutineScope {
+      while (s3.objects.list(dirPath).isNotEmpty)
+        delay(PollDelay)
+    }
+  }
+
+  override suspend fun delete(path: String) {
+    val actualPath = this.path.extendPath(path)
+
+    s3.objects.delete(actualPath)
+
+    // Workaround for MinIO bug with deleted objects still being available after
+    // a success response on a delete request.
+    coroutineScope {
+      while (s3.objects.stat(actualPath) != null)
+        delay(PollDelay)
+    }
+  }
 
   override suspend fun hasSubWorkspace(id: HashID) =
     s3.objects.contains(path.extendPath(id.string, MarkerFile))
