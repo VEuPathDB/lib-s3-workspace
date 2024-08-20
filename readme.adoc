@@ -1,8 +1,8 @@
 = S3 Workspaces
 :vpdb-gh: https://github.com/VEuPathDB
 
-:feature-version: 5.0.0
-:actual-version: 5.0.0
+:feature-version: 5.1.0
+:actual-version: 5.1.0
 
 :source-highlighter: highlightjs
 
@@ -18,6 +18,21 @@ This library comes in 2 flavors:
 for blocking operations.
 . `workspaces-java`: A Java compatible mirror of the Kotlin API utilizing
 thread blocking.
+
+== Usage
+
+.*In Thread Based Projects*
+[source, kotlin, subs="attributes"]
+----
+implementation("org.veupathdb.lib.s3:workspaces-java:{actual-version}")
+----
+
+.*In Coroutine Based Projects*
+[source, kotlin, subs="attributes"]
+----
+implementation("org.veupathdb.lib.s3:workspaces-kt:{actual-version}")
+----
+
 
 == Workspaces
 

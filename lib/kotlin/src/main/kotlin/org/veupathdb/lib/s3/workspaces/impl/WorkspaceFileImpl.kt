@@ -1,5 +1,7 @@
 package org.veupathdb.lib.s3.workspaces.impl
 
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import org.veupathdb.lib.s3.s34k.buckets.S3Bucket
 import org.veupathdb.lib.s3.s34k.objects.S3Object
 import org.veupathdb.lib.s3.workspaces.WorkspaceFile
@@ -27,6 +29,14 @@ internal class WorkspaceFileImpl(
   override suspend fun download(localFile: File) =
     buck.objects.download(absolutePath, localFile).localFile
 
-  override suspend fun delete() =
+  override suspend fun delete() {
     root.delete()
+
+    // Workaround for MinIO bug with deleted objects still being available after
+    // a success response on a delete request.
+    coroutineScope {
+      while (root.stat() != null)
+        delay(PollDelay)
+    }
+  }
 }
